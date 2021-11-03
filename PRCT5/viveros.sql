@@ -6,7 +6,7 @@ CREATE SCHEMA IF NOT EXISTS mydb;
 -- -----------------------------------------------------
 -- Table mydb.VIVERO
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS mydb.VIVERO ;
+DROP TABLE IF EXISTS mydb.VIVERO CASCADE;
 
 CREATE TABLE IF NOT EXISTS mydb.VIVERO (
   Coordenadas VARCHAR(100) NOT NULL,
@@ -17,16 +17,16 @@ CREATE TABLE IF NOT EXISTS mydb.VIVERO (
 -- -----------------------------------------------------
 -- Table mydb.CLIENTE
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS mydb.CLIENTE ;
+DROP TABLE IF EXISTS mydb.CLIENTE CASCADE;
 
 CREATE TABLE IF NOT EXISTS mydb.CLIENTE (
   DNI VARCHAR(9) NOT NULL,
-  Nombre VARCHAR(20)
-  ApellidoS VARCHAR(40),
+  Nombre VARCHAR(20),
+  Apellidos VARCHAR(40),
+  Correo VARCHAR(60),
   Bonificación DECIMAL(3,2) NULL,
   Total_mensual INT NULL,
   Fecha_ingreso DATE NULL,
-  Correo VARCHAR(60),   
   PRIMARY KEY (DNI));
 
 
@@ -135,9 +135,12 @@ CREATE OR REPLACE FUNCTION crear_email() RETURNS TRIGGER AS $example_table$
    BEGIN
       -- SI EL CORREO PARA LA ENTRADA INSERT CLIENTE ESTÁ VACIO
       IF NEW.Correo IS NULL THEN
-        INSERT INTO CLIENTE(Correo) VALUES (CONCAT(NEW.Nombre, NEW.Apellidos, '@viverostenerife.com');
+        INSERT INTO mydb.CLIENTE(DNI, Nombre, Apellidos, Correo, Bonificación, Total_mensual, Fecha_ingreso) VALUES (NEW.DNI, NEW.Nombre, NEW.Apellidos, CONCAT(NEW.Nombre, NEW.Apellidos, '@viverostenerife.com'), NEW.Bonificación, NEW.Total_mensual, NEW.Fecha_ingreso);
         -- GENERAR EMAIL NUEVO E INSERTAR TODO JUNTO
+      ELSE
+        INSERT INTO mydb.CLIENTE(DNI, Nombre, Apellidos, Correo, Bonificación, Total_mensual, Fecha_ingreso) VALUES (NEW.DNI, NEW.Nombre, NEW.Apellidos, 'No pasó F', NEW.Bonificación, NEW.Total_mensual, NEW.Fecha_ingreso);
       END IF;
+
       
       RETURN NEW;
 
@@ -145,7 +148,7 @@ CREATE OR REPLACE FUNCTION crear_email() RETURNS TRIGGER AS $example_table$
 $example_table$ LANGUAGE plpgsql;
 
 
-CREATE TRIGGER example_trigger BEFORE INSERT ON CLIENTE
+CREATE TRIGGER example_trigger BEFORE INSERT ON mydb.CLIENTE
 FOR EACH ROW EXECUTE PROCEDURE crear_email();
 
 -- -----------------------------------------------------
@@ -161,8 +164,8 @@ COMMIT;
 -- Data for table mydb.CLIENTE
 -- -----------------------------------------------------
 BEGIN;
-INSERT INTO mydb.CLIENTE (DNI, Bonificación, Total_mensual, Fecha_ingreso) VALUES ('33333333C', NULL, NULL, NULL);
-INSERT INTO mydb.CLIENTE (DNI, Bonificación, Total_mensual, Fecha_ingreso) VALUES ('44444444D', NULL, NULL, NULL);
+INSERT INTO mydb.CLIENTE (DNI, Nombre, Apellidos, Correo, Bonificación, Total_mensual, Fecha_ingreso) VALUES ('33333333C', 'Alejandro', 'Medina', NULL, NULL, NULL, NULL);
+INSERT INTO mydb.CLIENTE (DNI, Nombre, Apellidos, Correo, Bonificación, Total_mensual, Fecha_ingreso) VALUES ('44444444D', NULL, NULL, 'pepe@viverostenerife.com', NULL, NULL, NULL);
 COMMIT;
 
 
