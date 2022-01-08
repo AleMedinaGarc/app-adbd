@@ -1,0 +1,105 @@
+html {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+h1 {
+    padding-bottom: 4%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: #54585d;
+    border: 1px solid #54585d;
+    color: white;
+    padding: 10px;
+}
+
+th:hover {
+    background-color: #64686e;
+}
+
+td {
+    padding: 10px 0px 10px 0px;
+    color: #636363;
+    border: 1px solid #64686e;
+}
+
+tr {
+    background-color: #ffffff;
+    border: 1px solid #64686e;
+}
+
+tr .highlight {
+    background-color: #f9fafb;
+}
+
+input {
+    margin-left: 9%;
+}
+
+.header {
+    padding: 60px 0px 60px 0px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Geneva, sans-serif;
+}
+
+.navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #54585d;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navBar li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.navBar .active {
+    background-color: #4284f5;
+    color: white;
+    pointer-events: none;
+}
+
+.buttonDiv {
+    padding-left: 10%;
+    padding-bottom: 4%;
+}
+
+.button {
+    background-color: #4284f5;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
