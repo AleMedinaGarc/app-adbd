@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `app-tienda`.`CLIENTS` (
   `DNI` VARCHAR(9) NOT NULL,
   `pc` VARCHAR(45) NULL,
   `tlf` INT(9) NULL,
-  `nameClient` VARCHAR(45) NULL,
+  `nameClient` VARCHAR(45) NOT NULL,
   `surname` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`email`),
   UNIQUE INDEX `DNI_UNIQUE` (`DNI` ASC) VISIBLE,

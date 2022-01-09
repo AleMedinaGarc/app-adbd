@@ -21,7 +21,7 @@ if ($result = $db->query('SELECT * FROM PRODUCTS')) {
 
   <body>
     <div class="header">
-      <h1>Productos</h1>
+      <h1>Clientes</h1>
       <ul class="navBar">
         <li><a class="active" href="./index.php">Artículos</a></li>
         <li><a href="./pages/clients/clients.php">Clientes</a></li>
@@ -52,16 +52,16 @@ if ($result = $db->query('SELECT * FROM PRODUCTS')) {
           <tbody>
             <tr class="item">
               <td><?php echo $row['ID']; ?>
-                <td><?php echo $row['nameItem']; ?></td>
-                  <td><?php echo $row['family']; ?></td>
-                    <td><?php echo $row['descr']; ?></td>
-                      <td><?php echo $row['stock']; ?></td>
-                        <td><?php echo $row['size']; ?></td>
-                          <td><?php echo $row['price']; ?></td>
-                            <td<?php echo $column == 'weight' ? $add_class : ''; ?>><?php echo $row['weight']; ?>
-                              <td style="text-align: center;"><a href="./pages/purchases/add/add-purchase.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">shopping_cart</i></a></td>
-                              <td style="text-align: center;"><a href="./pages/products/edit/edit-product.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">edit</i></a></td>
-                              <td style="text-align: center;"><a href="./pages/products/actions/delete.php?ID=<?php echo $row['ID']; ?>"><i class="material-icons">delete_forever</i></a></td>
+              <td><?php echo $row['nameItem']; ?></td>
+              <td><?php echo $row['family']; ?></td>
+              <td><?php echo $row['descr']; ?></td>
+              <td><?php echo $row['stock']; ?></td>
+              <td><?php echo $row['size']; ?></td>
+              <td><?php echo $row['price']; ?></td>
+              <td<?php echo $column == 'weight' ? $add_class : ''; ?>><?php echo $row['weight']; ?>
+                <td style="text-align: center;"><a href="./pages/purchases/add/add-purchase.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">shopping_cart</i></a></td>
+                <td style="text-align: center;"><a href="./pages/products/edit/edit-product.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">edit</i></a></td>
+                <td style="text-align: center;"><a href="./pages/products/actions/delete.php?ID=<?php echo $row['ID']; ?>"><i class="material-icons">delete_forever</i></a></td>
             </tr>
           <tbody>
           <?php endwhile; ?>

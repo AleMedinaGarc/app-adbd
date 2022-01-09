@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Añadir cliente</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="add-client.css">
+    <link rel="icon" href="../../assets/images/image.png" type="image/x-icon">
+    <link rel="icon" href="../../assets/images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="header">
+        <h2>Añadir cliente</h2>
+    </div>
+
+    <form action="../actions/insert.php" method="post">
+        <ul class="form-style-1">
+            <li>
+                <label>DNI <span class="required">*</span></label>
+                <input type="text" name="DNI" class="field-divided" />
+
+            </li>
+            <li>
+                <label>Email<span class="required">*</span></label>
+                <input type="text" name="email" class="field-divided" />
+            </li>
+            <li>
+                <label>Nombre<span class="required">*</span></label>
+                <input type="text" name="nameClient" class="field-divided" />
+            </li>
+            <li>
+                <label>Apellido<span class="required">*</span></label>
+                <input type="text" s name="surname" class="field-divided" />
+            </li>
+            <li>
+                <label>Código Postal</label>
+                <input type="number" name="price" class="field-divided" />
+            </li>
+            <li>
+                <label>Teléfono</label>
+                <input type="text" step="0.01" min="0" name="tlf" class="field-divided" />
+            </li>
+
+            <input type="submit" name="submit" value="Insertar" class="btn btn-primary">
+            <a class="btn btn-outline-danger" href="../../index.php">Volver sin guardar</a>
+        </ul>
+    </form>
+</body>
+
+</html>
