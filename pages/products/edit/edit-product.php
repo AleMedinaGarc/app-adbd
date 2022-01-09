@@ -16,7 +16,7 @@ $row = $result->fetch_assoc();
 <head>
   <title>ADBD P6 - PRODUCTOS</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="products-edit.css">
+  <link rel="stylesheet" href="edit-product.css">
   <link rel="icon" href="../../assets/images/image.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
