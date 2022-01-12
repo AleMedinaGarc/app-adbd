@@ -4,7 +4,7 @@
 <head>
     <title>Tienda ADBD</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="new-product.css">
+    <link rel="stylesheet" href="../../assets/styles/insert.css">
     <link rel="icon" href="../../assets/images/image.png" type="image/x-icon">
     <link rel="icon" href="../../assets/images/image.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,9 +13,10 @@
 <body>
     <div class="header">
         <h2>Añadir producto</h2>
+        <hr class="solid">
     </div>
 
-    <form action="../actions/insert.php" method="post">
+    <form action="./actions/insert.php" method="post">
         <ul class="form-style-1">
             <li>
                 <label>Nombre <span class="required">*</span></label>
@@ -46,7 +47,7 @@
           <option value="Otro">Otro</option>
         </select>
             </li>
-            <li>
+            <li id="last">
                 <label>Descripcion</label>
                 <textarea name="descr" id="field5" class="field-long field-textarea"></textarea>
             </li>

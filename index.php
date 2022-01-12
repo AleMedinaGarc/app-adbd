@@ -13,7 +13,7 @@ if ($result = $db->query('SELECT * FROM PRODUCTS')) {
   <head>
     <title>Tienda ADBD</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
     <link rel="icon" href="./assets/images/image.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -21,15 +21,15 @@ if ($result = $db->query('SELECT * FROM PRODUCTS')) {
 
   <body>
     <div class="header">
-      <h1>Clientes</h1>
       <ul class="navBar">
-        <li><a class="active" href="./index.php">Artículos</a></li>
+        <li><a class="active" href="./index.php">Productos</a></li>
         <li><a href="./pages/clients/clients.php">Clientes</a></li>
         <li><a href="./pages/purchases/purchases.php">Compras</a></li>
       </ul>
+      <h1>Productos</h1>
     </div>
     <div class="buttonDiv">
-      <button class="button"> <a href="./pages/products/add/new-product.html">Añadir producto</a></button>
+      <input type="submit" name="update" value="Añadir producto" class="btn btn-primary" role="link" onclick="window.location=`./pages/products/add-product.html`">
     </div>
     <div class="tableDiv">
       <table>
@@ -59,8 +59,8 @@ if ($result = $db->query('SELECT * FROM PRODUCTS')) {
               <td><?php echo $row['size']; ?></td>
               <td><?php echo $row['price']; ?></td>
               <td<?php echo $column == 'weight' ? $add_class : ''; ?>><?php echo $row['weight']; ?>
-                <td style="text-align: center;"><a href="./pages/purchases/add/add-purchase.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">shopping_cart</i></a></td>
-                <td style="text-align: center;"><a href="./pages/products/edit/edit-product.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">edit</i></a></td>
+                <td style="text-align: center;"><a href="./pages/purchases/add-purchase.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">shopping_cart</i></a></td>
+                <td style="text-align: center;"><a href="./pages/products/edit-product.php?id=<?php echo $row['ID']; ?>"><i class="material-icons">edit</i></a></td>
                 <td style="text-align: center;"><a href="./pages/products/actions/delete.php?ID=<?php echo $row['ID']; ?>"><i class="material-icons">delete_forever</i></a></td>
             </tr>
           <tbody>

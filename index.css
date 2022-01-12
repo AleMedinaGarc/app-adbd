@@ -55,7 +55,10 @@ input {
 
 .navBar {
     list-style-type: none;
-    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     overflow: hidden;
     background-color: #54585d;
 }

@@ -4,8 +4,8 @@ $password = "ADBD2122";
 $database = "app-tienda";
 $db = mysqli_connect("localhost", $user, $password, $database) or die('Error al conectar al servidor MySQL.');
 
-$url_email = $_GET['email'];
-$result = $db->query("SELECT * FROM `CLIENTES` WHERE email='$url_email'");
+$url_email = $_GET['id'];
+$result = $db->query("SELECT * FROM `CLIENTS` WHERE email='$url_email'");
 $row = $result->fetch_assoc();
 ?>
 
@@ -46,7 +46,7 @@ $row = $result->fetch_assoc();
       </li>
       <li>
         <label>Código Postal</label>
-        <input type="number"  name="price" class="field-divided" value="<?php echo $row['price']; ?>" />
+        <input type="number"  name="pc" class="field-divided" value="<?php echo $row['pc']; ?>" />
       </li>
       <li>
       <label>Teléfono</label>
@@ -54,7 +54,7 @@ $row = $result->fetch_assoc();
       </li>
 
       <input type="submit" name="update" value="Actualizar" class="btn btn-primary">
-      <a class="btn btn-outline-danger" href="../../index.php">Volver sin guardar</a>
+      <a class="btn btn-outline-danger" href="./clients.php">Volver sin guardar</a>
     </ul>
   </form>
 </body>

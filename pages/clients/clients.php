@@ -12,25 +12,25 @@ if ($result = $db->query('SELECT * FROM CLIENTS')) {
   <html>
 
   <head>
-    <title>Tienda ADBD</title>
+    <title>Clientes</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="clients.css">
-    <link rel="icon" href="./assets/images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/styles/main.css">
+    <link rel="icon" href="../../assets/images/image.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   </head>
 
   <body>
     <div class="header">
-      <h1>Clientes</h1>
       <ul class="navBar">
-        <li><a href="./index.php" href="../../../clients.php">Artículos</a></li>
+        <li><a href="/" >Productos</a></li>
         <li><a class="active">Clientes</a></li>
-        <li><a href="./pages/purchases/purchases.php">Compras</a></li>
+        <li><a href="../purchases/purchases.php">Compras</a></li>
       </ul>
+      <h1>Clientes</h1>
     </div>
     <div class="buttonDiv">
-      <button class="button"> <a href="./add/add-client.html">Añadir Cliente</a></button>
+      <input type="submit" name="update" value="Añadir producto" class="btn btn-primary" role="link" onclick="window.location=`./add-client.html`">
     </div>
     <div class="tableDiv">
       <table>
@@ -40,8 +40,8 @@ if ($result = $db->query('SELECT * FROM CLIENTS')) {
             <th>Email</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Codigo Postal</th>
-            <th>Telefono</th>
+            <th>Código Postal</th>
+            <th>Teléfono</th>
             <th style="text-align: center;">Editar</th>
             <th style="text-align: center;">Eliminar</th>
           </tr>

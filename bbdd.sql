@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `app-tienda`.`CLIENTS` ;
 CREATE TABLE IF NOT EXISTS `app-tienda`.`CLIENTS` (
   `email` VARCHAR(45) NOT NULL,
   `DNI` VARCHAR(9) NOT NULL,
-  `pc` VARCHAR(45) NULL,
+  `pc` int(9) NULL,
   `tlf` INT(9) NULL,
   `nameClient` VARCHAR(45) NOT NULL,
   `surname` VARCHAR(45) NOT NULL,
@@ -52,7 +52,6 @@ CREATE TABLE IF NOT EXISTS `app-tienda`.`PURCHASES` (
   `email` VARCHAR(60) NOT NULL,
   `IDProduct` INT(10) NOT NULL,
   `amount` INT(3) NOT NULL,
-  `totalPrice` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`IDPurchase`),
   INDEX `email_idx` (`email` ASC) VISIBLE,
   INDEX `IDProduct_idx` (`IDProduct` ASC) VISIBLE,
@@ -68,6 +67,19 @@ CREATE TABLE IF NOT EXISTS `app-tienda`.`PURCHASES` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Triggers
+-- -----------------------------------------------------
+
+DROP TRIGGER IF EXISTS `app-tienda`.`UPDATE_STOCK`;
+
+CREATE TRIGGER `app-tienda`.`UPDATE_STOCK` 
+BEFORE INSERT ON `app-tienda`.`PURCHASES` FOR EACH ROW
+BEGIN
+	UPDATE `app-tienda`.`PRODUCTS` 
+  SET `stock` = `stock` - new.amount 
+  WHERE `ID` = new.IDProduct;
+END;
 
 -- -----------------------------------------------------
 -- Data for table `app-tienda`.`PRODUCTS`
@@ -97,4 +109,8 @@ INSERT INTO `app-tienda`.`CLIENTS` (`email`, `DNI`, `pc`, `tlf`, `nameClient`, `
 INSERT INTO `app-tienda`.`CLIENTS` (`email`, `DNI`, `pc`, `tlf`, `nameClient`, `surname`) VALUES ('alfonso@gmail.com', '18360573A', '38296', 315643231 , 'Alfonso', 'Muñoz');
 INSERT INTO `app-tienda`.`CLIENTS` (`email`, `DNI`, `pc`, `tlf`, `nameClient`, `surname`) VALUES ('laura@gmail.com', '17462837T', '38108', 327426095 , 'Laura', 'Medina');
 
+-- -----------------------------------------------------
+-- Data for table `app-tienda`.`PURCHASES`
+-- -----------------------------------------------------
+INSERT INTO `app-tienda`.`PURCHASES` (`IDPurchase`, `email`, `IDProduct`, `amount`) VALUES (DEFAULT, 'maria@gmail.com', 1 , 2);
 
