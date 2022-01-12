@@ -30,7 +30,7 @@ if ($result = $db->query('SELECT * FROM CLIENTS')) {
       <h1>Clientes</h1>
     </div>
     <div class="buttonDiv">
-      <input type="submit" name="update" value="Añadir producto" class="btn btn-primary" role="link" onclick="window.location=`./add-client.html`">
+      <input type="submit" name="update" value="Añadir cliente" class="btn btn-primary" role="link" onclick="window.location=`./add-client.html`">
     </div>
     <div class="tableDiv">
       <table>
